@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Generate Deeplink</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/pico.min.css}"/>
+</head>
+<body>
+<main class="container">
+    <h1>JWT Generator</h1>
+    <form>
+        <div class="row">
+            <div class="col-sm-12">
+                <label for="userId">User ID</label>
+            </div>
+            <div class="col-sm-12">
+                <input type="text" id="userId" placeholder="User ID"/>
+            </div>
+        </div>
+
+        <details>
+            <summary>Additional Configuration</summary>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="urlPrefix">Deep Link Scheme</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" id="urlPrefix" placeholder="Deeplink"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="expiration">Token Expiration (Seconds)</label>
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" id="expiration" placeholder="Expiration"/>
+                </div>
+            </div>
+        </details>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <input type="submit" value="Open Deeplink" onclick="return fetchJwt();">
+            </div>
+            <div class="col-sm-12">
+                <input type="submit" value="Reset Default Values" class="secondary" onclick="return resetDefault();">
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-sm-12">
+            &copy; 2022 Wultra
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+
+    function fetchJwt() {
+        const userId = document.getElementById("userId").value;
+        const urlPrefix = document.getElementById("urlPrefix").value;
+        const expiration = document.getElementById("expiration").value;
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("urlPrefix", urlPrefix);
+        localStorage.setItem("expiration", expiration);
+
+        // Construct URL
+        const windowUrl = window.location;
+        let baseUrl = windowUrl.protocol + "//" + windowUrl.host;
+        const contextPath = windowUrl.pathname.split('/')[1];
+        if (contextPath !== null && contextPath !== '') {
+            baseUrl += ("/" + contextPath)
+        }
+
+        const url = new URL(baseUrl + "/jwt");
+        const params = {
+            "userId": userId,
+            "expiration": expiration
+        }
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => window.location.href = urlPrefix + data.jwt);
+        return false;
+    }
+
+    function resetDefault() {
+        localStorage.clear();
+        setDefaultValues();
+        return false;
+    }
+
+    function setDefaultValues() {
+        document.getElementById("userId").value = "[[${usernamePrefix}]]";
+        document.getElementById("urlPrefix").value = "[[${deeplinkPrefix}]]";
+        document.getElementById("expiration").value = "[[${expiration}]]";
+    }
+
+    (function() {
+        setDefaultValues();
+
+        const userId = localStorage.getItem("userId");
+        const urlPrefix = localStorage.getItem("urlPrefix");
+        const expiration = localStorage.getItem("expiration");
+
+        if (userId !== null) {
+            document.getElementById("userId").value = userId;
+        }
+        if (urlPrefix !== null) {
+            document.getElementById("urlPrefix").value = urlPrefix;
+        }
+        if (expiration !== null) {
+            document.getElementById("expiration").value = expiration;
+        }
+    })();
+
+    /*]]>*/
+</script>
+
+</body>
+</html>
