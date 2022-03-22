@@ -20,7 +20,7 @@ powerauth.jwt.config.expiration=300
 powerauth.jwt.algorithm=ES512
 
 # Private key used for JWT signatures. The value below is an example value from https://jwt.io/.
-# Replace it with your private key (PEM without header/footer)
+# Replace it with your private key (PEM without header/footer).
 powerauth.jwt.private-key=MIHuAgEAMBAGByqGSM49AgEGBSuBBAAjBIHWMIHTAgEBBEIBiyAa7aRHFDCh2qga\
   9sTUGINE5jHAFnmM8xWeT/uni5I4tNqhV5Xx0pDrmCV9mbroFtfEa0XVfKuMAxxf\
   Z6LM/yKhgYkDgYYABAGBzgdnP798FsLuWYTDDQA7c0r3BVk8NnRUSexpQUsRilPN\
