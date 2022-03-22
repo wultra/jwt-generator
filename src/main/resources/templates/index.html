@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Generate Deeplink</title>
+    <title>JWT Generator</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link rel="apple-touch-icon" th:href="@{/images/icon.png}" />
+    <link rel="apple-touch-icon" sizes="120x120" th:href="@{/images/icon-2x.png}" />
+    <link rel="apple-touch-icon" sizes="152x152" th:href="@{/images/icon-3x.png}" />
+
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2048-2732.png}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2732-2048.png}" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1668-2388.png}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2388-1668.png}" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1536-2048.png}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2048-1536.png}" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1668-2224.png}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2224-1668.png}" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1620-2160.png}" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2160-1620.png}" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1284-2778.png}" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2778-1284.png}" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1170-2532.png}" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2532-1170.png}" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1125-2436.png}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2436-1125.png}" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1242-2688.png}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2688-1242.png}" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-828-1792.png}"  media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1792-828.png}"  media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1242-2208.png}" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-2208-1242.png}" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-750-1334.png}"  media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1334-750.png}"  media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-640-1136.png}"  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-1136-640.png}"  media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2048-2732.png}" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2732-2048.png}" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1668-2388.png}" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2388-1668.png}" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1536-2048.png}" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2048-1536.png}" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1668-2224.png}" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2224-1668.png}" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1620-2160.png}" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2160-1620.png}" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1284-2778.png}" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2778-1284.png}" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1170-2532.png}" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2532-1170.png}" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1125-2436.png}" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2436-1125.png}" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1242-2688.png}" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2688-1242.png}" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-828-1792.png}"  media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1792-828.png}"  media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1242-2208.png}" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-2208-1242.png}" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-750-1334.png}"  media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1334-750.png}"  media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-640-1136.png}"  media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+    <link rel="apple-touch-startup-image" th:href="@{images/splash/apple-splash-dark-1136-640.png}"  media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no"/>
+
     <link rel="stylesheet" th:href="@{/css/pico.min.css}"/>
+    <style rel="stylesheet">
+        .toggle-link, .toggle-link:hover, .toggle-link:active, .toggle-link:visited, .toggle-link:focus {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <main class="container">
@@ -15,7 +82,7 @@
                 <label for="userId">User ID</label>
             </div>
             <div class="col-sm-12">
-                <input type="text" id="userId" placeholder="User ID"/>
+                <input type="text" id="userId" placeholder="User ID" autocorrect="off" autocapitalize="none"/>
             </div>
         </div>
 
@@ -26,7 +93,7 @@
                     <label for="urlPrefix">Deep Link Scheme</label>
                 </div>
                 <div class="col-sm-12">
-                    <input type="text" id="urlPrefix" placeholder="Deeplink"/>
+                    <input type="url" id="urlPrefix" placeholder="Deeplink" autocorrect="off" autocapitalize="none"/>
                 </div>
             </div>
             <div class="row">
@@ -34,7 +101,7 @@
                     <label for="expiration">Token Expiration (Seconds)</label>
                 </div>
                 <div class="col-sm-12">
-                    <input type="text" id="expiration" placeholder="Expiration"/>
+                    <input type="number" id="expiration" pattern="[0-9]*" placeholder="Expiration" inputmode="numeric" autocorrect="off" autocapitalize="none"/>
                 </div>
             </div>
         </details>
@@ -51,10 +118,21 @@
 
     <div class="row">
         <div class="col-sm-12">
-            &copy; 2022 Wultra
+            Theme:
+            <a id="theme-auto" class="toggle-link" onclick="return setTheme('auto')">Auto</a>
+            | <a id="theme-light" class="toggle-link" onclick="return setTheme('light')">Light</a>
+            | <a id="theme-dark" class="toggle-link" onclick="return setTheme('dark')">Dark</a>
         </div>
     </div>
 </main>
+
+<footer class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            &copy; 2022 Wultra
+        </div>
+    </div>
+</footer>
 
 <script type="text/javascript">
     /*<![CDATA[*/
@@ -81,10 +159,10 @@
             "expiration": expiration
         }
         Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-
+        
         fetch(url)
             .then(response => response.json())
-            .then(data => window.location.href = urlPrefix + data.jwt);
+            .then(data => window.location = (urlPrefix + data.jwt));
         return false;
     }
 
@@ -98,6 +176,28 @@
         document.getElementById("userId").value = "[[${usernamePrefix}]]";
         document.getElementById("urlPrefix").value = "[[${deeplinkPrefix}]]";
         document.getElementById("expiration").value = "[[${expiration}]]";
+    }
+
+    function setTheme(theme) {
+        if (theme === null) {
+            theme = "auto";
+        }
+        document.querySelector('html').setAttribute('data-theme', theme);
+        localStorage.setItem("theme", theme);
+        if (theme === "dark") {
+            document.getElementById("theme-auto").setAttribute("style", "font-weight: normal;");
+            document.getElementById("theme-dark").setAttribute("style", "font-weight: bold;");
+            document.getElementById("theme-light").setAttribute("style", "font-weight: normal;");
+        } else if (theme === "light") {
+            document.getElementById("theme-auto").setAttribute("style", "font-weight: normal;");
+            document.getElementById("theme-dark").setAttribute("style", "font-weight: normal;");
+            document.getElementById("theme-light").setAttribute("style", "font-weight: bold;");
+        } else if (theme === "auto") {
+            document.getElementById("theme-auto").setAttribute("style", "font-weight: bold;");
+            document.getElementById("theme-dark").setAttribute("style", "font-weight: normal;");
+            document.getElementById("theme-light").setAttribute("style", "font-weight: normal;");
+        }
+        return false;
     }
 
     (function() {
@@ -116,6 +216,9 @@
         if (expiration !== null) {
             document.getElementById("expiration").value = expiration;
         }
+
+        const theme = localStorage.getItem("theme");
+        setTheme(theme);
     })();
 
     /*]]>*/
