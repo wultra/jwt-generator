@@ -34,7 +34,7 @@ powerauth.jwt.private-key=MIHuAgEAMBAGByqGSM49AgEGBSuBBAAjBIHWMIHTAgEBBEIBiyAa7a
 Start the Spring Boot application using:
 
 ```sh
-java -jar jwt-generator.war`
+java -jar jwt-generator.war
 ```
 
 You can download the WAR file in the [releases](https://github.com/wultra/jwt-generator/releases) section, or you can clone the source codes and build the WAR file yourself:
