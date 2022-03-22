@@ -57,6 +57,14 @@ Start the Spring Boot application using:
 java -jar jwt-generator.war`
 ```
 
+You can download the WAR file in the [releases](https://github.com/wultra/jwt-generator/releases) section, or you can clone the source codes and build the WAR file yourself:
+
+```sh
+git clone https://github.com/wultra/jwt-generator.git
+cd jwt-generator
+mvn clean package -DskipTests=true
+```
+
 Alternatively, clone the source codes and run the application using Maven:
 
 ```sh
