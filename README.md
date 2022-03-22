@@ -60,7 +60,7 @@ java -jar jwt-generator.war`
 Alternatively, clone the source codes and run the application using Maven:
 
 ```sh
-git clone https://github.com/wultra/jwt-generator-util.git
-cd jwt-generator-util
+git clone https://github.com/wultra/jwt-generator.git
+cd jwt-generator
 mvn spring-boot:run
 ```
